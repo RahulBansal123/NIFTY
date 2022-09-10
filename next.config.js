@@ -2,7 +2,7 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const nextConfig = {
-  excludeFile: (str) => /\*.cy.{js,ts}/.test(str),
+  excludeFile: (str) => /\*.cy.ts/.test(str),
   reactStrictMode: true,
   trailingSlash: true,
   images: {
@@ -16,7 +16,10 @@ const nextConfig = {
       },
     ],
   },
-  sentry: { hideSourceMaps: true },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  sentry: { hideSourceMaps: false },
 };
 
 const sentryWebpackPluginOptions = {
