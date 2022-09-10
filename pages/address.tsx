@@ -74,7 +74,7 @@ const AddressPage: NextPage = () => {
 
       <Header />
 
-      <main className="flex-1 container mx-auto px-6 mb-20 md:px-0">
+      <main className="flex-1 container mx-auto px-6 mb-20 md:px-12">
         <section className="my-10">
           {(isLearnWeb3Fetching || isBuildspaceFetching) && <Spinner />}
 

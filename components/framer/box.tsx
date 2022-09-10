@@ -11,7 +11,10 @@ const boxVariant: { visible: any; hidden: any } = {
 
 const Box: React.FC<IBox> = ({ children, className }) => {
   const control = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '-100px 0px',
+  });
 
   useEffect(() => {
     if (inView) {

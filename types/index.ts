@@ -40,3 +40,7 @@ export interface IModal {
   children: React.ReactNode;
   setShow: (value: boolean) => void;
 }
+
+export interface ISearchInput {
+  className: string;
+}

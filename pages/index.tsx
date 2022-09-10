@@ -2,13 +2,14 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { ExternalLink } from 'react-feather';
 
 import Header from '../components/navigation/header';
 import Footer from '../components/navigation/footer';
 import Box from '../components/framer/box';
 import Card from '../components/card/horizontal';
-import dynamic from 'next/dynamic';
+import SearchInput from '../components/navigation/search';
 
 const Device = dynamic(() => import('../components/device-detect'), {
   ssr: false,
@@ -72,7 +73,7 @@ const Home: NextPage = () => {
 
       <Header />
 
-      <main className="flex-1 container mx-auto px-6 mb-20 md:px-0">
+      <main className="flex-1 container mx-auto px-6 mb-20 md:px-12">
         <section className="my-10 md:my-20 px-8">
           <Box className="w-full">
             <div className="grid grid-cols-1 md:grid-cols-2">
@@ -86,6 +87,13 @@ const Home: NextPage = () => {
                   Share what you have. Discover what others have. Collect what
                   you like.
                 </p>
+
+                <SearchInput className="flex md:hidden" />
+
+                <p className="md:hidden my-5 text-center text-sm font-semibold text-gray-400">
+                  --- OR ---
+                </p>
+
                 <div className="w-full text-center md:text-left">
                   <Link href="#discover">
                     <a className="btn btn-large-transition shadow-xl bg-primary-500 text-white">
@@ -106,7 +114,7 @@ const Home: NextPage = () => {
           </Box>
         </section>
 
-        <section className="my-20 md:my-40 px-8">
+        <section className="mt-20 mb-14 md:mt-40 md:mb-28 px-8">
           <Box className="w-full">
             <h2 className="h2 text-center">What you can showcase</h2>
 
@@ -155,21 +163,21 @@ const Home: NextPage = () => {
               Find what top users are collecting and what is helping them to
               reach the top.
             </p>
-
-            <div className="w-full md:w-3/4 mx-auto mt-8 flex flex-col">
-              {userData.map((data) => (
-                <Card
-                  key={data.name}
-                  name={data.name}
-                  title={data.title}
-                  description={data.description}
-                  place={data.place}
-                  link={data.link}
-                  image={data.image}
-                />
-              ))}
-            </div>
           </Box>
+
+          <div className="w-full md:w-3/4 mx-auto mt-8 flex flex-col">
+            {userData.map((data) => (
+              <Card
+                key={data.name}
+                name={data.name}
+                title={data.title}
+                description={data.description}
+                place={data.place}
+                link={data.link}
+                image={data.image}
+              />
+            ))}
+          </div>
         </section>
       </main>
 

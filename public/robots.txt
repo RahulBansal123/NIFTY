@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://nifty.on.fleek.co/sitemap.xml
+Sitemap: https://nifty-eta.vercel.app/sitemap.xml
