@@ -2,6 +2,7 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const nextConfig = {
+  excludeFile: (str) => /\*.cy.{js,ts}/.test(str),
   reactStrictMode: true,
   trailingSlash: true,
   images: {

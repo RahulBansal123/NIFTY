@@ -9,7 +9,7 @@
     "export": "next export",
     "lint": "next lint",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run --browser chrome"
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^0.5.1",

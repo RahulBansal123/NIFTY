@@ -29,12 +29,15 @@ const Header: React.FC<{}> = () => {
     <div className="w-full">
       <div className="w-full flex mx-auto items-center justify-between flex-wrap py-3 px-5 md:py-4 md:px-20 shadow dark:shadow-gray-300">
         <Link href="/">
-          <a className="text-xl font-bold cursor-pointer">NIFTY</a>
+          <a data-cy="nav-item" className="text-xl font-bold cursor-pointer">
+            NIFTY
+          </a>
         </Link>
         <div className="flex-1 hidden md:flex justify-center">
           <div className="flex items-center border px-2 rounded-lg bg-gray-100 hover:bg-white">
             <Search color="#9ca3af" />
             <input
+              data-cy="search-input"
               className="input bg-inherit text-gray-600 placeholder:text-gray-400"
               placeholder="Search"
               value={address}
