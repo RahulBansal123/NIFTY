@@ -8,6 +8,7 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import { ToastContainer } from 'react-toastify';
+import { createClient as createURQLClient, Provider } from 'urql';
 
 const { chains, provider, webSocketProvider } = configureChains(
   [chain.polygon],
@@ -31,11 +32,20 @@ const wagmiClient = createClient({
   webSocketProvider,
 });
 
+const GRAPHURL =
+  'https://api.thegraph.com/subgraphs/name/learnweb3dao/profile-subgraphs';
+
+const urqlClient = createURQLClient({
+  url: GRAPHURL,
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
+        <Provider value={urqlClient}>
+          <Component {...pageProps} />
+        </Provider>
         <ToastContainer />
       </RainbowKitProvider>
     </WagmiConfig>

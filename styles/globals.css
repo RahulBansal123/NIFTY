@@ -19,8 +19,38 @@ a {
   box-sizing: border-box;
 }
 
+.input {
+  @apply w-full p-2 rounded-md outline-none text-base;
+}
+
+.btn {
+  @apply px-6 py-3 rounded-xl;
+}
+
 .btn-transition {
   @apply shadow dark:shadow-slate-300 hover:shadow-md hover:dark:shadow-slate-300 transition duration-200 ease-in-out;
+}
+
+.btn-large-transition {
+  @apply shadow-lg dark:shadow-slate-300 hover:shadow-xl hover:dark:shadow-slate-300 transition duration-200 ease-in-out;
+}
+
+.spinner-border {
+  vertical-align: -0.125em;
+  border: 0.2em solid;
+  border-right-color: transparent;
+}
+
+.fade {
+  transition: opacity 0.15s linear;
+}
+
+.h1 {
+  @apply text-4xl md:text-6xl font-bold text-primary-500 leading-[1.15];
+}
+
+.h2 {
+  @apply text-3xl md:text-4xl font-bold text-primary-500 leading-[1.15];
 }
 
 /* @media (prefers-color-scheme: dark) {
